@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>我的 GitHub Pages</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>何意味</title>
   <style>
-    body {
-      font-family: "Microsoft YaHei", sans-serif;
-      background: #f5f5f5;
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0f0f10; --fg: #e9e9ea; }
+    }
+    html, body {
+      height: 100%;
       margin: 0;
-      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
     }
-    header {
-      background: #4CAF50;
-      color: white;
-      padding: 20px;
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 6vh 4vw;
       text-align: center;
     }
-    main {
-      padding: 40px;
-      text-align: center;
+    /* “大大”作为字体大小修饰：让文字超大且自适应 */
+    .word {
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1.05;
+      /* 自适应超大字号：移动端到超宽屏都保持巨大而不溢出 */
+      font-size: clamp(48px, 12vw, 160px);
     }
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-    a {
-      color: #4CAF50;
-      text-decoration: none;
+    .hint {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      opacity: 0.6;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>欢迎来到我的 GitHub Pages</h1>
-  </header>
-  <main>
-    <p>这是我的第一个网页，用 GitHub Pages 搭建。</p>
-    <p>你可以在这里展示项目、写博客，或者放置个人介绍。</p>
-    <p>👉 <a href="https://github.com/你的用户名">访问我的 GitHub</a></p>
+  <main class="wrap">
+    <h1 class="word">何意味</h1>
+    <p class="hint">“大大”是字体大小的修饰词，这里用超大字号展示。</p>
   </main>
-  <footer>
-    <p>© 2025 我的名字 · 使用 GitHub Pages 构建</p>
-  </footer>
 </body>
 </html>
-
-
