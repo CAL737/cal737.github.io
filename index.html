@@ -6,154 +6,193 @@
   <title>wyj484 的博客</title>
   <meta name="description" content="学习笔记、技术探索、日常激励与游戏文化的温柔与实用合集" />
   <style>
-    /* 保留原有样式，这里不再重复，与你上传的版本一致 */
-  </style>
-</head>
-<body>
-  <!-- Mobile Topbar -->
-  <div class="topbar">
-    <div class="wrap">
-      <div class="brand-inline" style="display:flex;align-items:center;gap:10px">
-        <div class="logo" style="width:28px;height:28px;border-radius:50%;
-          background:radial-gradient(circle at 30% 30%, #7aa2ff, #a57bff 60%, #4f5bd9)"></div>
-        <strong>wyj484 的博客</strong>
-      </div>
-      <div class="hamburger" id="toggleSidebar" aria-label="打开侧边栏"><span></span></div>
-    </div>
-  </div>
+    :root{
+      --bg:#0f1223;
+      --bg-soft:#141738;
+      --panel:#1b1f4a;
+      --card:#21255a;
+      --text:#e6e9ff;
+      --muted:#aeb5ff;
+      --accent:#7aa2ff;
+      --accent-2:#a57bff;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+      --radius-sm:10px;
+      --gap:18px;
+      --transition:.25s ease;
+    }
 
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-      <div class="brand">
-        <div class="logo"></div>
-        <div class="meta">
-          <div class="title">wyj484 的博客</div>
-          <div class="desc">学习、技术、激励与游戏文化</div>
-        </div>
-      </div>
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:ui-sans-serif, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, "Noto Sans", "Hiragino Sans GB", sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg, #0d1020 0%, #121535 100%);
+      overflow-x:hidden;
+      animation:fadeIn .6s ease both;
+    }
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(8px)}
+      to{opacity:1; transform:translateY(0)}
+    }
 
-      <div class="search">
-        <div class="icon" aria-hidden="true"></div>
-        <input type="search" id="searchInput" placeholder="搜索文章标题或摘要…" />
-      </div>
+    a{color:var(--accent); text-decoration:none}
+    a:hover{color:#9bbcff}
 
-      <div class="section-title">导航</div>
-      <nav class="nav">
-        <a href="#home">首页</a>
-        <a href="#study">学习笔记</a>
-        <a href="#tech">技术探索</a>
-        <a href="#daily">日常激励</a>
-        <a href="#games">游戏与文化</a>
-        <a href="#about">关于我</a>
-      </nav>
+    .layout{
+      display:grid;
+      grid-template-columns: 300px 1fr;
+      gap:var(--gap);
+      padding:var(--gap);
+      max-width:1200px;
+      margin:0 auto;
+    }
 
-      <div class="section-title">分类</div>
-      <div class="cats" id="catList">
-        <button data-cat="all">
-          <span>全部</span>
-          <span class="badge">4</span>
-        </button>
-        <button data-cat="学习">
-          <span>学习</span>
-          <span class="badge">1</span>
-        </button>
-        <button data-cat="技术">
-          <span>技术</span>
-          <span class="badge">1</span>
-        </button>
-        <button data-cat="激励">
-          <span>激励</span>
-          <span class="badge">1</span>
-        </button>
-        <button data-cat="游戏">
-          <span>游戏</span>
-          <span class="badge">1</span>
-        </button>
-      </div>
+    .sidebar{
+      background:linear-gradient(180deg, var(--panel), var(--card));
+      border:1px solid #2b3070;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      position:sticky;
+      top:var(--gap);
+      height:calc(100vh - var(--gap)*2);
+      overflow:auto;
+      padding:20px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding-bottom:16px;
+      border-bottom:1px dashed #2f357c;
+      margin-bottom:16px;
+    }
+    .brand .logo{
+      width:40px; height:40px; border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, #7aa2ff, #a57bff 60%, #4f5bd9);
+      box-shadow:0 6px 18px rgba(122,162,255,.45);
+      flex-shrink:0;
+    }
+    .brand .meta .title{font-weight:700; letter-spacing:.3px}
+    .brand .meta .desc{font-size:12px; color:var(--muted)}
 
-      <div class="section-title">关于</div>
-      <div class="about">
-        <p style="margin:0 0 8px">这里记录了系统排查、Cloudflare 配置、学习方法与温柔座右铭。希望它既能帮你解决问题，也能陪你走过每个日常。</p>
-        <p style="margin:0;font-size:12px;color:#bfc5ff">域名绑定：blog.wyj484.dpdns.org · hyw.wyj484.dpdns.org</p>
-      </div>
-    </aside>
+    .section-title{
+      font-size:13px; color:var(--muted); letter-spacing:.4px;
+      text-transform:uppercase;
+      margin:18px 0 10px;
+    }
 
-    <!-- Main -->
-    <main class="main">
-      <section class="hero" id="home">
-        <div class="info">
-          <h1>欢迎来到 wyj484 的博客</h1>
-          <p>结构化排查与温柔激励并存：学习、技术、激励与游戏文化的精选内容。</p>
-        </div>
-        <div class="actions">
-          <a class="btn" href="#tech">技术探索</a>
-          <a class="btn" href="#study">学习笔记</a>
-          <a class="btn" href="#daily">日常激励</a>
-          <a class="btn" href="#games">游戏与文化</a>
-        </div>
-      </section>
+    .nav, .cats, .about{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .nav a, .cats button{
+      background:linear-gradient(180deg, #262b6a, #262b6a);
+      border:1px solid #343a86;
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:var(--radius-sm);
+      display:flex; align-items:center; gap:8px;
+      transition:transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+    .nav a:hover, .cats button:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 24px rgba(122,162,255,.2);
+      background:linear-gradient(180deg, #2b3178, #2b3178);
+    }
 
-      <section class="grid" aria-label="文章列表">
-        <!-- Article 1: 技术 -->
-        <article class="card" data-cat="技术">
-          <div class="meta">
-            <span class="tag">技术</span>
-            <span class="date">2025-12-06</span>
-          </div>
-          <h3>如何在 Github Pages 上搭建一个丰富的 Blog</h3>
-          <p>介绍如何使用 Github Pages 与 Cloudflare 构建多域名博客系统：主域名展示 Blog，子域名指向专题页面，支持分类与动画。</p>
-          <a class="more" href="#">阅读全文 →</a>
-        </article>
+    .search{
+      position:relative; margin-top:8px;
+    }
+    .search input{
+      width:100%;
+      background:linear-gradient(180deg, #1c2056, #1c2056);
+      border:1px solid #31367f;
+      color:var(--text);
+      padding:12px 12px 12px 38px;
+      border-radius:var(--radius-sm);
+      outline:none;
+    }
 
-        <!-- Article 2: 学习 -->
-        <article class="card" data-cat="学习">
-          <div class="meta">
-            <span class="tag">学习</span>
-            <span class="date">2025-11-28</span>
-          </div>
-          <h3>高效学习的三步：拆解、归档、复盘</h3>
-          <p>用清晰的结构化方法拆解题目与知识点，建立错题与案例库，并在每周进行复盘，稳步提高应试与应用能力。</p>
-          <a class="more" href="#">阅读全文 →</a>
-        </article>
+    .cats{
+      gap:8px;
+    }
+    .cats button{
+      cursor:pointer;
+      display:flex; justify-content:space-between;
+    }
+    .cats .badge{
+      font-size:12px; color:#cdd2ff;
+      background:#2f357c; padding:2px 8px; border-radius:999px;
+      border:1px solid #4047a2;
+    }
 
-        <!-- Article 3: 激励 -->
-        <article class="card" data-cat="激励">
-          <div class="meta">
-            <span class="tag">激励</span>
-            <span class="date">2025-11-12</span>
-          </div>
-          <h3>与你的日常，便是奇迹</h3>
-          <p>温柔并非软弱，而是力量的另一种形态。把每个小小的进步贴到生活里，就会慢慢亮起来。</p>
-          <a class="more" href="#">阅读全文 →</a>
-        </article>
+    .about{
+      background:linear-gradient(180deg,#1b1f4a,#1c2258);
+      padding:12px; border-radius:var(--radius-sm);
+      border:1px solid #2b3070; color:#d8dcff;
+    }
 
-        <!-- Article 4: 游戏 -->
-        <article class="card" data-cat="游戏">
-          <div class="meta">
-            <span class="tag">游戏</span>
-            <span class="date">2025-10-20</span>
-          </div>
-          <h3>从游戏到现实：策略、节奏与团队协作</h3>
-          <p>把游戏中的资源管理与节奏控制迁移到学习与集体生活，训练判断力与协同效能，体验友好而有序的团队合作。</p>
-          <a class="more" href="#">阅读全文 →</a>
-        </article>
-      </section>
+    .main{min-height:100vh;}
+    .hero{
+      background:linear-gradient(180deg, #1b1f4a, #21255a);
+      border:1px solid #2b3070;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      margin-bottom:var(--gap);
+    }
+    .hero .info h1{margin:0 0 8px; font-size:24px}
+    .hero .info p{margin:0; color:#cfd4ff}
+    .hero .actions{display:flex; gap:10px; flex-wrap:wrap;}
+    .btn{
+      background:linear-gradient(180deg, #2b3178, #2b3178);
+      color:var(--text);
+      border:1px solid #3a41a0;
+      padding:10px 12px; border-radius:12px;
+      transition:transform var(--transition), box-shadow var(--transition), background var(--transition);
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 24px rgba(165,123,255,.25);
+      background:linear-gradient(180deg, #32398d, #32398d);
+    }
 
-      <footer class="footer">
-        <div class="left">© 2025 wyj484 · Blog powered by Microsoft Copilot(ChatGPT GPT-5)</div>
-        <div class="right">
-          <span class="pill">学习</span>
-          <span class="pill">技术</span>
-          <span class="pill">激励</span>
-          <span class="pill">游戏</span>
-        </div>
-      </footer>
-    </main>
-  </div>
+    .grid{display:grid; grid-template-columns: repeat(2, 1fr); gap:var(--gap);}
+    .card{
+      background:linear-gradient(180deg, #22265b, #1f2355);
+      border:1px solid #33397f;
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:hover{
+      transform:translateY(-4px) scale(1.01);
+      box-shadow:0 16px 40px rgba(122,162,255,.25);
+      border-color:#4650b2;
+    }
+    .card .meta{display:flex; align-items:center; gap:10px; color:#cfd4ff; font-size:13px; margin-bottom:10px;}
+    .tag{font-size:12px; color:#dfe3ff; background:#2f357c; border:1px solid #4047a2; padding:4px 8px; border-radius:999px;}
+    .date{color:#b7bdff; font-size:12px;}
+    .card h3{margin:6px 0 8px}
+    .card p{margin:0 0 10px; color:#d9ddff}
+    .card .more{font-size:14px; color:#9bbcff}
+    .card .more:hover{color:#c6d6ff}
 
-  <script>
-    // 保留原有脚本逻辑，这里不再重复，与你上传的版本一致
-  </script>
-</body>
-</html>
+    .footer{
+      margin-top:var(--gap);
+      padding:16px;
+      color:#bfc5ff;
+      display:flex; justify-content:space-between; gap:10px;
+      border-top:1px dashed #2e3480;
+    }
+    .footer .left{font-size:13px}
+    .footer .right{display:flex; gap:8px; flex-wrap:wrap}
+    .pill{
+      border:1px solid #3a41a0; color:#cfd4ff;
+      background:linear-gradient(180deg,#262b6a,#
