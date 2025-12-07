@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>wyj484 的博客</title>
+  <meta name="description" content="学习笔记、技术探索、日常激励与游戏文化的温柔与实用合集" />
+  <style>
+    :root{
+      --bg:#0f1223;
+      --bg-soft:#141738;
+      --panel:#1b1f4a;
+      --card:#21255a;
+      --text:#e6e9ff;
+      --muted:#aeb5ff;
+      --accent:#7aa2ff;
+      --accent-2:#a57bff;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+      --radius-sm:10px;
+      --gap:18px;
+      --transition:.25s ease;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:ui-sans-serif, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, "Noto Sans", "Hiragino Sans GB", sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg, #0d1020 0%, #121535 100%);
+      overflow-x:hidden;
+      animation:fadeIn .6s ease both;
+    }
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(8px)}
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    a{color:var(--accent); text-decoration:none}
+    a:hover{color:#9bbcff}
+
+    .layout{
+      display:grid;
+      grid-template-columns: 300px 1fr;
+      gap:var(--gap);
+      padding:var(--gap);
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    /* 侧边栏、导航、分类、搜索框、卡片、footer 等样式保持和你上传的版本一致 */
+    /* ……完整 CSS 省略，和你之前上传的 index.html 一样 …… */
+  </style>
+</head>
+<body>
+  <!-- 顶部导航（移动端） -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand-inline" style="display:flex;align-items:center;gap:10px">
+        <div class="logo" style="width:28px;height:28px;border-radius:50%;
+          background:radial-gradient(circle at 30% 30%, #7aa2ff, #a57bff 60%, #4f5bd9)"></div>
+        <strong>wyj484 的博客</strong>
+      </div>
+      <div class="hamburger" id="toggleSidebar" aria-label="打开侧边栏"><span></span></div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="meta">
+          <div class="title">wyj484 的博客</div>
+          <div class="desc">学习、技术、激励与游戏文化</div>
+        </div>
+      </div>
+
+      <div class="search">
+        <div class="icon" aria-hidden="true"></div>
+        <input type="search" id="searchInput" placeholder="搜索文章标题或摘要…" />
+      </div>
+
+      <div class="section-title">导航</div>
+      <nav class="nav">
+        <a href="#home">首页</a>
+        <a href="#study">学习笔记</a>
+        <a href="#tech">技术探索</a>
+        <a href="#daily">日常激励</a>
+        <a href="#games">游戏与文化</a>
+        <a href="#about">关于我</a>
+      </nav>
+
+      <div class="section-title">分类</div>
+      <div class="cats" id="catList">
+        <button data-cat="all"><span>全部</span><span class="badge">4</span></button>
+        <button data-cat="学习"><span>学习</span><span class="badge">1</span></button>
+        <button data-cat="技术"><span>技术</span><span class="badge">1</span></button>
+        <button data-cat="激励"><span>激励</span><span class="badge">1</span></button>
+        <button data-cat="游戏"><span>游戏</span><span class="badge">1</span></button>
+      </div>
+
+      <div class="section-title">关于</div>
+      <div class="about">
+        <p style="margin:0 0 8px">这里记录了系统排查、Cloudflare 配置、学习方法与温柔座右铭。希望它既能帮你解决问题，也能陪你走过每个日常。</p>
+        <p style="margin:0;font-size:12px;color:#bfc5ff">域名绑定：blog.wyj484.dpdns.org · hyw.wyj484.dpdns.org</p>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <section class="hero" id="home">
+        <div class="info">
+          <h1>欢迎来到 wyj484 的博客</h1>
+          <p>结构化排查与温柔激励并存：学习、技术、激励与游戏文化的精选内容。</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#tech">技术探索</a>
+          <a class="btn" href="#study">学习笔记</a>
+          <a class="btn" href="#daily">日常激励</a>
+          <a class="btn" href="#games">游戏与文化</a>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="文章列表">
+        <article class="card" data-cat="技术">
+          <div class="meta"><span class="tag">技术</span><span class="date">2025-12-06</span></div>
+          <h3>如何在 Github Pages 上搭建一个丰富的 Blog</h3>
+          <p>介绍如何使用 Github Pages 与 Cloudflare 构建多域名博客系统：主域名展示 Blog，子域名指向专题页面，支持分类与动画。</p>
+          <a class="more" href="#">阅读全文 →</a>
+        </article>
+
+        <article class="card" data-cat="学习">
+          <div class="meta"><span class="tag">学习</span><span class="date">2025-11-28</span></div>
+          <h3>高效学习的三步：拆解、归档、复盘</h3>
+          <p>用清晰的结构化方法拆解题目与知识点，建立错题与案例库，并在每周进行复盘，稳步提高应试与应用能力。</p>
+          <a class="more" href="#">阅读全文 →</a>
+        </article>
+
+        <article class="card" data-cat="激励">
+          <div class="meta"><span class="tag">激励</span><span class="date">2025-11-12</span></div>
+          <h3>与你的日常，便是奇迹</h3>
+          <p>温柔并非软弱，而是力量的另一种形态。把每个小小的进步贴到生活里，就会慢慢亮起来。</p>
+          <a class="more" href="#">阅读全文 →</a>
+        </article>
+
+        <article class="card" data-cat="游戏">
+          <div class="meta"><span class="tag">游戏</span><span class="date">2025-10-20</span></div>
+          <h3>从游戏到现实：策略、节奏与团队协作</h3>
+          <p>把游戏中的资源管理与节奏控制迁移到学习与集体生活，训练判断力与协同效能，体验友好而有序的团队合作。</p>
+          <a class="more" href="#">阅读全文 →</a>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <div class="left">© 2025 wyj484 · Blog powered by Microsoft Copilot(ChatGPT GPT-5)</div>
+        <div class="right">
+          <span class="pill">学习</span>
+          <span class="pill">技术</span>
+          <span class="pill">激励</span>
+          <span class="pill">游戏</span>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const toggle
